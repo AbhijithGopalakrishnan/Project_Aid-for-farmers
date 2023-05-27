@@ -1,0 +1,70 @@
+{% extends "commonbaseinv.html" %}
+{% block content3 %}
+
+
+
+
+<style>
+    th,td{
+        padding: 10px;
+        color:white;
+        font-size: large;
+    }
+    th{
+        background-color:rgb(0, 0, 0);
+        color: white;
+    }
+    td{
+        color:rgb(0, 0, 0);
+    }
+    </style>
+    <div style="margin: 50px; background-color: aliceblue;border-radius: 1em;">
+       <center> <h1 style="margin: 10px;color:rgb(0, 0, 0)">Forms</h1>
+        <table  style="margin-top: 40px;margin-left: 80px;">
+        <tr>
+            <th>NAME</th>
+            <th>PLAN</th>
+
+            <th>ADDRESS</th>
+            
+            <th>EMAIL</th>
+            <th>CONTACT</th>
+            <th>MESSAGE</th>
+            <th>DATE</th>
+          
+           
+            
+          
+            
+        
+          
+         
+            {% comment %} <th colspan="2">ACTION</th> {% endcomment %}
+        </tr>
+    
+   {% for d in data %}
+      <tr>
+        <td>{{d.user.Name}}</td>
+        <td>{{d.plan.Name}}</td>
+        
+        <td>{{d.user.Address}}</td>
+       
+        <td>{{d.user.Email}}</td>
+        <td>{{d.user.Contact}}</td>
+      <td>{{d.message}}</td>
+      <td>{{d.date}}</td>
+      
+   
+             
+           
+         
+    </tr>
+      {% endfor %}
+  
+        </table>
+    </center>
+    </div>
+
+
+    </div>
+{% endblock %}

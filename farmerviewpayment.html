@@ -1,0 +1,63 @@
+
+
+{% extends "commonbasefarmer.html" %}
+{% block content2 %}
+<style>h1,h3{color:white}</style>
+<style>
+    th,td{
+        padding: 10px;
+    }
+    th{
+        background-color:steelblue;
+        color: white;
+    }
+    </style>
+    <div style="margin: 50px;">
+        <h1 style="margin: 10px;">PAYMENTS</h1>
+        <table  style="margin-top: 40px;margin-left: 80px;">
+        <tr>
+            <th>SENDER</th>
+            <!-- <th>RECEIVER</th> -->
+            <!-- <th>CODER NAME</th> -->
+            
+            <th>DATE</th>
+            <th>AMOUNT</th>
+            <!-- <th>QUALIFICATION</th> -->
+            <!-- <th>EXPERIENCE</th> -->
+            <!-- <th>DATE</th> -->
+           
+            
+          
+            
+            <!-- <th>ACTION</th> -->
+          
+         
+            {% comment %} <th colspan="2">ACTION</th> {% endcomment %}
+        </tr>
+    
+   {% for d in data %}
+      <tr>
+        <td>{{d.sender.Name}}</td>
+        
+        <!-- <td>{{d.receiver.Name}}</td> -->
+       
+        <td>{{d.date}}</td>
+        <td>{{d.amt}}</td>
+        <!-- <td>{{d.date}}</td> -->
+        <!-- <td>{{d.Aadhar}}</td> -->
+       
+        <!-- <td><a href="/adminrejectfar?id={{d.id}}">Remove</a></td> -->
+
+   
+             
+           
+         
+    </tr>
+      {% endfor %}
+  
+        </table>
+    </div>
+
+
+    </div>
+{% endblock %}

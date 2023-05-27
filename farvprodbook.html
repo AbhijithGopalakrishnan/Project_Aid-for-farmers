@@ -1,0 +1,71 @@
+{% extends "commonbasefarmer.html" %}
+{% block content2 %}
+
+<style>
+    th,td{
+        padding: 10px;
+        font-size: x-large;
+    }
+    th{
+        background-color:steelblue;
+        color: white;
+    }
+    </style>
+    <div style="margin: 50px;  background-color: rgb(200, 235, 235); opacity: 89%; border-radius: 1em;">
+        <center><h1 style="margin: 10px;">Booking</h1>
+        <table  style="margin-top: 40px;margin-left: 80px;">
+        <tr>
+            <th>P NAME</th>
+            <th>AMOUNT</th>
+            <!-- <th>CODER NAME</th> -->
+            
+            <th>QUANTITY</th>
+            <th>SUPPLIER</th>
+            <!-- <th>QUALIFICATION</th> -->
+            <!-- <th>EXPERIENCE</th> -->
+            <th>DATE</th>
+            <th>STATUS</th>
+           
+            
+          
+            
+            <th>ACTION</th>
+          
+         
+            {% comment %} <th colspan="2">ACTION</th> {% endcomment %}
+        </tr>
+    
+   {% for d in data %}
+      <tr>
+        <td>{{d.pid.Name}}</td>
+        
+        <td>{{d.amt}}</td>
+       
+        <td>{{d.qty}}</td>
+        <td>{{d.user.Name}}</td>
+        <td>{{d.date}}</td>
+        <td>{{d.status}}</td>
+        <!-- <td>{{d.Aadhar}}</td> -->
+        {% if d.status == "delivered" %}
+       <td><a href="/farmerbuyequip?id={{d.id}}">Payment</a></td>
+       {% endif %}
+       {% if d.status == "Paid" %}
+       <td>Completed</td>
+       {% endif %}
+        <!-- <td><a href="/adminrejectfar?id={{d.id}}">Remove</a></td> -->
+
+   
+             
+           
+         
+    </tr>
+      {% endfor %}
+  
+        </table>
+    </center>
+    </div>
+
+
+    </div>
+
+    {% endblock %}

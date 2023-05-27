@@ -1,0 +1,74 @@
+{% extends "commonbaseinv.html" %}
+{% block content3 %}
+
+<style>
+    h1,td{color: rgb(0, 0, 0);
+            padding: 15px;
+             }
+    input{color: rgb(0, 0, 0);
+            height: 50px;
+            border-radius: 1em;
+            font-size: 15px;
+            }  
+
+    button{height: 40px;
+            width: 90px;
+            color: black;
+            border-radius: 2em;}
+    button:hover{background-color: black;
+                color:rgb(245, 245, 243);
+    }
+    input[type=file]{background-color: azure;
+                    width:370px}
+    /* .formstyle{background-color: black;} */
+
+    
+</style>
+<body >
+<div class="formstyle" >
+<center>
+<h1 style="color:black"><u>EDIT PLAN</u></h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if data %}
+    <table>
+       
+        <tr><tr>
+            <td><h4>Name</h4></td></tr>
+            <td><input type="text" value="{{data.Name}}" required name="name" size="70"></td>
+        </tr>
+ 
+        <tr><tr>
+            <td><h4>Amount</h4></td></tr>
+            <td><input type="text" value="{{data.Amount}}" required name="amt" size="70"></td>
+        </tr>
+        <tr><tr>
+            <td><h4>Time</h4></td></tr>
+            <td><input type="text" value="{{data.Time}}" required name="time" size="70"></td>
+        </tr>
+        <tr><tr>
+            <td><h4>Rate</h4></td></tr>
+            <td><input type="text" value="{{data.rate}}" required name="rate" size="70"></td>
+        </tr>
+        <tr><tr>
+            <td><h4 style="color:white">EMI</h4></td></tr>
+            <td><input type="text" value="{{data.emi}}" required name="emi" size="70"></td>
+        </tr>
+        <tr>
+            
+            <td><button color="black"><b>Update</b></button></td>
+        </tr>
+       
+    </table>
+    {% endif %}
+</form>
+</center>
+
+</div>
+
+</body>
+
+
+
+
+{% endblock %}

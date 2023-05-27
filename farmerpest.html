@@ -1,0 +1,51 @@
+{% extends "commonbasefarmer.html" %}
+{% block content2 %}
+
+PESTICIDES
+<div class="w3-services-grids py-lg-4 text-center" style="padding: 20px;">
+    <div class="fea-gd-vv row">
+        {% for i in data %}
+        <div class="col-lg-4 col-md-7" style="margin-bottom: 30px">
+            <div class="feature-gd icon-yellow">
+                <div class="icon">
+                    <i
+                        ><img
+                            src="/static{{i.6}}"
+                            style="
+                                height: 100px;
+                                width: 100px;
+                                padding-right: 26px;
+                                padding-bottom: 5px;
+                                border-radius: 50%;
+                            "
+                    /></i>
+                </div>
+                <div class="info" style="margin-top: 50px">
+                    <h3>Product.{{i.3}}</h3>
+                    <h3>Rs.{{i.5}}</h3>
+                    <ul>
+                        <li class="cary-li-w3-agileits">
+                            <div class="snipcart-details top_brand_home_details">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <a href="/customerviewproduct?id={{i.0}}"
+                                            ><input
+                                                type="button"
+                                                name="submit"
+                                                value="View details"
+                                                class="btn btn-primary"
+                                        /></a>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+ 

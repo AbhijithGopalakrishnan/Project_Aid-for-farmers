@@ -1,0 +1,103 @@
+{% extends "commonbasesup.html" %}
+{% block content5 %}
+
+
+
+
+<style>
+    h1,td{color: rgb(8, 13, 13);
+            padding: 15px;
+             }
+    input{color: black;
+            height: 50px;
+            border-radius: 1em;
+            font-size: 15px;
+            }  
+
+    button{height: 40px;
+            width: 90px;
+            color: black;
+            border-radius: 2em;}
+    button:hover{background-color: black;
+                color:rgb(245, 245, 243);
+    }
+    input[type=file]{background-color: azure;
+                    width:370px}
+    /* .formstyle{background-color: black;} */
+
+    
+</style>
+<div class="formstyle" style="background-color: rgb(251, 233, 215);opacity: 89%;border-radius: 2em;">
+<center>
+<h1><u>Equipments to Sell</u></h1>
+<form method="post" enctype="multipart/form-data">
+    
+    {% csrf_token %}
+    <table>
+        <tr><tr>
+            <td><h4>Name of Equipment</h4></td></tr>
+            <td><input type="text" required name="name" size="70"></td>
+        </tr>
+        <!-- <tr><tr>
+
+            <td><h4>Address:</h4></td></tr>
+            <td><input type="text" required name="add" size="70"></td>
+        </tr>
+        <tr><tr>
+            <td><h4>Contact:</h4></td></tr>
+            <td><input type="text" required name="con" size="70"></td>
+        </tr>-->
+        <tr><tr>
+            <td><h4>Price</h4></td></tr>
+            <td><input type="text" required name="price" size="70"></td>
+        </tr>
+        <tr><tr>
+            <td><h4>Description</h4></td></tr>
+            <td>
+                <textarea  style="border-radius: 1rem;" name="desc" ></textarea>
+            </td>
+        </tr>
+        <tr><tr>
+            <td><h4>Quantity</h4></td></tr>
+            <td><input type="text"  required name="qty" size="70"></td>
+        </tr>
+      
+        <tr><tr>
+            <td><h4>Category</h4></td></tr>
+            <td><select required name="cat" id="cat">
+                {% for d in data %}
+                <option value="{{d.id}}">{{d.cat}}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+    
+        <tr><tr>
+            <td><h4>Photo:</h4></td></tr>
+            <td><input type="file" required name="photo" size="70"></td>
+        </tr> 
+       
+        <tr>
+            
+            <td><button color="black"><b>Post</b></button></td>
+        </tr>
+    </table>
+</form>
+</center>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}')</script>
+{% endfor %}
+{% endif %}
+{% endblock %}

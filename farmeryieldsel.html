@@ -1,0 +1,66 @@
+{% extends "commonbasefarmer.html" %}
+{% block content2 %}
+
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+    <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <!-- <h2>Pump</h2> -->
+        <h2>Equipment Details</h2>
+
+    </div>
+</div><!-- End Breadcrumbs -->
+
+<!-- ======= Contact Section ======= -->
+<!-- End Contact Section -->
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+
+{% if data %}
+        <div class="row gy-4 mt-1">
+            <div class="col-lg-6" style="margin: auto;">
+                <form  method="post">
+                    {% csrf_token %}
+                    <div class="row gy-4 mb-3 ">
+                        <div class="col-lg-6 form-group">
+                            <input type="text" name="fuel" class="form-control" id="name" placeholder="{{data.Name}}" value="{{data.Name}}" readonly required>
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <input type="text" class="form-control" name="rate" id="rate" placeholder="{{data.price}}" value="{{data.price}}" readonly required>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center"><input type="number" class="form-control" max="{{data.quantity}}" name="qty" id="qty" placeholder="Required Quantity"  onchange="myFun(this.value)" required></div>
+                    {% endif %}
+                    <div class="text-center mt-3"><input type="text" class="form-control" name="tot" id="tCost" placeholder="Total Cost" readonly required></div>
+                    
+                    <div class="text-center mt-3"><textarea class="form-control" rows="5" name="info" placeholder="Additional Information" required></textarea></div>
+                   
+
+
+                    <br>
+                    <div class="text-center mt-3"><button type="submit" name="submit" class="btn btn-warning">Request</button></div><br>
+                </form>
+            </div><!-- End Contact Form -->
+
+        </div>
+
+    </div>
+    <script>
+        function myFun(qty) {
+            var rate = document.getElementById("rate").value
+    
+            document.getElementById("tCost").value = rate * qty
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+
+    {% if messages %}
+    {% for msg in messages %}
+    <script>alert('{{msg}}')</script>
+    {% endfor %}
+    {% endif %}
+
+{% endblock %}

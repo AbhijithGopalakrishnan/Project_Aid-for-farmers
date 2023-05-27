@@ -1,0 +1,13 @@
+{% extends "commonbasesup.html" %}
+{% block content5 %}
+
+<style>
+    h1{padding:100px; color:aliceblue}
+</style>
+<center>
+
+{% if data %}
+<h1>WELCOME     {{data.Name}}</h1>
+{% endif %}
+</center>
+{% endblock %}

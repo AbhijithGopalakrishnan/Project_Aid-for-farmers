@@ -1,0 +1,79 @@
+{% extends "commonbasefarmer.html" %}
+{% block content2 %}
+
+
+<style>
+    h1,td{color: rgb(8, 13, 13);
+            padding: 15px;
+             }
+    input{color: black;
+            height: 50px;
+            border-radius: 1em;
+            font-size: 15px;
+            }  
+
+    button{height: 40px;
+            width: 90px;
+            color: black;
+            border-radius: 2em;}
+    button:hover{background-color: black;
+                color:rgb(245, 245, 243);
+    }
+    input[type=file]{background-color: azure;
+                    width:370px}
+    /* .formstyle{background-color: black;} */
+
+    
+</style>
+<div class="formstyle">
+<center>
+<h1><u style="color:aliceblue">FORM</u></h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr><tr>
+            <td><h4 style="color: aliceblue;">Info:</h4></td></tr>
+            <td><textarea name="form" id="form" cols="80" style="border-radius: 1em;" rows="6"></textarea></td>
+        </tr>
+       <tr>           
+            <td><button color="black"><b>Register</b></button></td>
+        </tr>
+    </table>
+</form>
+</center>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+	
+
+{% endblock %}

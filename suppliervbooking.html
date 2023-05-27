@@ -1,0 +1,71 @@
+{% extends "commonbasesup.html" %}
+{% block content5 %}
+
+
+<style>
+    th,td{
+        padding: 10px;
+        font-size: x-large;
+        color: bisque;
+    }
+    th{
+        background-color:steelblue;
+        color: white;
+    }
+    </style>
+    <div style="margin: 50px;">
+        <h1 style="margin: 10px;color:rgb(255, 255, 255)">PAYMENTS</h1>
+        <table  style="margin-top: 40px;margin-left: 80px;">
+        <tr>
+            <th>SENDER</th>
+           
+            
+            <th>DATE</th>
+            <th>AMOUNT</th>
+            <!-- <th>QUALIFICATION</th> -->
+            <!-- <th>EXPERIENCE</th> -->
+            <!-- <th>DATE</th> -->
+           
+            
+          
+            
+            <!-- <th>ACTION</th> -->
+          
+         
+            {% comment %} <th colspan="2">ACTION</th> {% endcomment %}
+        </tr>
+    
+   {% for d in data %}
+      <tr>
+        <td>{{d.sender.Name}}</td>
+        
+     
+       
+        <td>{{d.date}}</td>
+        <td>{{d.amt}}</td>
+        <!-- <td>{{d.date}}</td> -->
+        <!-- <td>{{d.Aadhar}}</td> -->
+        {% if d.status == "booked" %}
+       <td><a href="/supdeliver?id={{d.id}}">Delivered</a></td>
+       {% endif %}
+       {% if d.status == "delivered" %}
+       <td>Delivered</td>
+       {% endif %}
+       {% if d.status == "Paid" %}
+       <td>Completed</td>
+       {% endif %}
+        <!-- <td><a href="/adminrejectfar?id={{d.id}}">Remove</a></td> -->
+
+   
+             
+           
+         
+    </tr>
+      {% endfor %}
+  
+        </table>
+    </div>
+
+
+    </div>
+{% endblock %}

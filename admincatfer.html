@@ -1,0 +1,57 @@
+{% extends "commonbaseadmin.html" %}
+{% block content4 %}
+<style>
+    h1,td{color: rgb(8, 13, 13);
+            padding: 15px;
+            color: white;
+             }
+    input{color: black;
+            height: 50px;
+            border-radius: 1em;
+            font-size: 15px;
+            }  
+
+    button{height: 40px;
+            width: 90px;
+            color: black;
+            border-radius: 2em;}
+    button:hover{background-color: black;
+                color:rgb(245, 245, 243);
+    }
+    input[type=file]{background-color: azure;
+                    width:370px}
+    /* .formstyle{background-color: black;} */
+
+    
+</style>
+<body >
+<div class="formstyle" >
+<center>
+<h1><u>Yield</u></h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr><tr>
+            <td><h4>Category</h4></td></tr>
+            <td><input type="text" required name="cat" size="70"></td>
+        </tr>
+      
+        
+            
+            <td><button color="black"><b>Add</b></button></td>
+        </tr>
+    </table>
+</form>
+</center>
+
+</div>
+
+</body>
+
+{% if messages %}
+{% for msg in messages %}
+<script>alert("{{msg}}")</script>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

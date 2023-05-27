@@ -1,0 +1,71 @@
+{% extends "commonbaseadmin.html" %}
+{% block content4 %}
+
+
+
+
+
+<style>
+    th,td{
+        padding: 10px;
+        font-size: large;
+        color: white;
+    }
+    th{
+        background-color:steelblue;
+        color: white;
+    }
+    </style>
+    <div style="margin: 50px;">
+       <center> <h1 style="margin: 10px;color:white">Investors</h1>
+        <table  style="margin-top: 40px;margin-left: 80px;">
+        <tr>
+            <th>NAME</th>
+            <th>ADDRESS</th>
+            <!-- <th>CODER NAME</th> -->
+            
+            <th>EMAIL</th>
+            <th>CONTACT</th>
+            <!-- <th>QUALIFICATION</th> -->
+            <th>PROFILE</th>
+            <th>LICENSE</th>
+           
+            
+          
+            
+            <th>ACTION</th>
+          
+         
+            {% comment %} <th colspan="2">ACTION</th> {% endcomment %}
+        </tr>
+    
+   {% for d in data %}
+      <tr>
+        <td>{{d.Name}}</td>
+        
+        <td>{{d.Address}}</td>
+       
+        <td>{{d.Email}}</td>
+        <td>{{d.Contact}}</td>
+        <td><img src="../static/media/{{d.prof}}" download="../static/media/{{d.prof}}" height="200px" width="200px"></td>
+        <td><img src="../static/media/{{d.license}}" download="../static/media/{{d.qualification}}" height="200px" width="200px"></td>
+        <!-- <td>{{d.Aadhar}}</td> -->
+        {% if d.status == 0 %}
+       <td><a href="/adminapproveinv?id={{d.id}}">Approve</a></td>
+       {% endif %}
+        <td><a href="/adminrejectinv?id={{d.id}}">Remove</a></td>
+
+   
+             
+           
+         
+    </tr>
+      {% endfor %}
+  
+        </table>
+    </center>
+    </div>
+
+
+    </div>
+{% endblock %}

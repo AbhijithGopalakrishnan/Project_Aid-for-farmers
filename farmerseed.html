@@ -1,0 +1,56 @@
+{% extends "commonbasefarmer.html" %}
+{% block content2 %}
+<style>
+    h3{color:aliceblue}
+</style>
+<center><h1 style="color:White"><b><u>EQUIPMENTS</u></b></h1></center>
+
+<div class="w3-services-grids py-lg-4 text-center" style="padding: 20px;">
+    <div class="fea-gd-vv row">
+        {% for d in data %}
+        {% if d.quantity > 0 %}
+        <div class="col-lg-4 col-md-7" style="margin-bottom: 30px">
+            <div class="feature-gd icon-yellow">
+                <div class="icon">
+                    <i
+                        ><img
+                            src="/static/media/{{d.image}}"
+                            style="
+                                height: 100px;
+                                width: 100px;
+                                padding-right: 26px;
+                                padding-bottom: 5px;
+                                border-radius: 50%;
+                            "
+                    /></i>
+                </div>
+                <div class="info" style="margin-top: 50px">
+                    <h3>{{d.Name}}</h3>
+                    <h3>Rs.{{d.price}}</h3>
+                    <h3>{{d.category}}</h3>
+                    <h3>Remaining:{{d.quantity}}</h3>
+                    <ul style="list-style: none;">
+                        <li class="cary-li-w3-agileits">
+                            <div class="snipcart-details top_brand_home_details">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <a href="/equipqselect?id={{d.id}}"
+                                            ><input
+                                                type="button"
+                                                name="submit"
+                                                value="Buy"
+                                                class="btn btn-primary"
+                                        /></a>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

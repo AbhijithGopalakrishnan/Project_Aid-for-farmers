@@ -1,0 +1,92 @@
+{% extends "commonbasefarmer.html" %}
+{% block content2 %}
+
+
+        <!-- <h2>Pump</h2> -->
+        <h1 style="padding: 30px; color:white">Expert Request</h1>
+
+<!-- ======= Contact Section ======= -->
+<!-- End Contact Section -->
+
+  
+
+
+{% if data %}
+        <div class="row gy-4 mt-1">
+            <div class="col-lg-6" style="margin: auto;">
+                <form  method="post">
+                    {% csrf_token %}
+                    <div class="row gy-4 mb-3 ">
+                        <div class="col-lg-6 form-group">
+                            <input type="text" name="fuel" class="form-control" id="name" placeholder="{{data.Name}}" value="{{data.Name}}" readonly required>
+                        </div>
+                       
+                        <div class="col-lg-6 form-group" style="margin-left: 150px;">
+                            <input type="text" class="form-control" name="rate" id="rate" placeholder="{{data.Contact}}" value="{{data.Contact}}" readonly required>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="text-center"><input type="num" class="form-control" max="{{data.quantity}}" name="qty" id="qty" placeholder="Required Quantity"  onchange="myFun(this.value)" required></div> -->
+                    {% endif %}
+                    
+                    <div class="text-center mt-3"><textarea class="form-control" rows="5" name="info" placeholder="Additional Information" required></textarea></div>
+                   
+
+
+                    <br>
+                    <div class="text-center mt-3"><button type="submit" id="btnsubmit1" name="submit" class="btn btn-warning">Request</button></div><br>
+                </form>
+            </div><!-- End Contact Form -->
+
+        </div>
+
+    
+    <script>
+        function myFun(qty) {
+            var rate = document.getElementById("rate").value
+    
+            document.getElementById("tCost").value = rate * qty
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+
+
+
+    
+<script>
+	function checkdate(date) {
+		// alert(date);
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		dd = parseInt(dd) + 1;
+        if (dd < 10){
+            dd = '0' + String(dd)
+        }else{
+            dd = String(dd)
+        }
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    
+    if (date < today){
+        alert("Choose valid date");
+      document.getElementById("btnsubmit1").disabled = true
+      document.getElementById("btnsubmit1").title = 'Select Correct Date'
+    }else{
+      document.getElementById("btnsubmit1").disabled = false
+      document.getElementById("btnsubmit1").title = ''
+    }
+	}
+</script>
+
+    {% if messages %}
+    {% for msg in messages %}
+    <script>alert('{{msg}}')</script>
+    {% endfor %}
+    {% endif %}
+
+
+
+{% endblock %}

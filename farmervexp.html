@@ -1,0 +1,65 @@
+{% extends "commonbasefarmer.html" %}
+{% block content2 %}
+
+<style>
+    table,tr,td{background-color: aliceblue;
+                font-size: large;}
+</style>
+<div class="container-fluid">
+
+    <table class="table bg-light table-hover table-danger table-striped text-center mt-5">
+        <tr>
+          
+            <th>Expert</th>
+            <th>Contact</th>
+            <th>Info</th>
+           <th>Slot</th>
+            <th>Status</th>
+            <th>Action</th>
+
+        </tr>
+        {% for d in data %}
+        
+            <tr>
+      
+        <td>{{d.did.Name}}</td>
+        <td>{{d.user.Contact}}</td>
+        <td>{{d.info}}</td>
+        <td>{{d.date}}</td>
+      
+      <td>{{d.status}}</td>
+      {% if d.status == 'requested' %}
+      <td>
+        <a href="/docapprove?id={{d.id}}"
+        ><input
+            type="button"
+            name="submit"
+            value="Approve "
+            class="btn btn-primary"
+    /></a>
+    <a href="/docremove?id={{d.id}}"
+        ><input
+            type="button"
+            name="submit"
+            value="Reject"
+            class="btn btn-primary"
+    /></a>
+      </td>
+      {% else %}
+      <td>
+        <a href="/userchat?email={{d.did.Email}}"
+        ><input
+            type="button"
+            name="submit"
+            value="Chat"
+            class="btn btn-primary"
+    /></a>
+      </td>
+        
+        </tr>
+        {% endif %}
+        {% endfor %}
+        
+    </table>
+</div>
+{% endblock %}

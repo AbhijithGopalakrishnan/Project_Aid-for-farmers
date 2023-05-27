@@ -1,0 +1,93 @@
+{% extends "commonbase.html" %}
+{% block content1 %}
+
+<style>
+    h1,td{color: rgb(8, 13, 13);
+            padding: 15px;
+             }
+    input{color: black;
+            height: 50px;
+            border-radius: 1em;
+            font-size: 15px;
+            }  
+
+    button{height: 40px;
+            width: 90px;
+            color: black;
+            border-radius: 2em;}
+    button:hover{background-color: black;
+                color:rgb(245, 245, 243);
+    }
+    input[type=file]{background-color: azure;
+                    width:370px}
+    /* .formstyle{background-color: black;} */
+
+    
+</style>
+<body>
+<div class="formstyle">
+<center>
+<h1><u>FARMER REGISTER</u></h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr><tr>
+            <td><h4>Name:</h4></td></tr>
+            <td><input type="text" required name="name" size="70"></td>
+        </tr>
+        <tr><tr>
+
+            <td><h4>Address:</h4></td></tr>
+            <td><input type="text" required name="add" size="70"></td>
+        </tr>
+        <tr><tr>
+            <td><h4>Contact:</h4></td></tr>
+            <td><input type="text" pattern="[789][0-9]{9}"  required name="con" size="70"></td>
+        </tr>
+        <tr><tr>
+            <td><h4>Email:</h4></td></tr>
+            <td><input type="email" required name="email" size="70"></td>
+        </tr>
+        <tr><tr>
+            <td><h4>Aadhar:</h4></td></tr>
+            <td><input type="file"  required name="adar" size="70"></td>
+        </tr>
+        <tr><tr>
+            <td><h4>Proof:</h4></td></tr>
+            <td><input type="file"  required name="proof" size="70"></td>
+        </tr>
+        
+        <tr><tr>
+            <td><h4>Password:</h4></td></tr>
+            <td><input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"  required name="pass" size="70"></td>
+        </tr>
+        <tr>
+            
+            <td><button color="black"><b>Register</b></button></td>
+        </tr>
+    </table>
+</form>
+</center>
+
+
+</div>
+
+
+</body>
+
+
+
+
+
+
+
+{% if messages %}
+{% for msg in messages %}
+<script>alert('{{msg}}')</script>
+{% endfor %}
+{% endif %}
+
+    
+
+
+    {% endblock %}

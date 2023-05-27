@@ -1,0 +1,59 @@
+{% extends "commonbasefarmer.html" %}
+{% block content2 %}
+<center style="color:white"><h1><b>Specialists</b></h1></center>
+<div class="w3-services-grids py-lg-4 text-center" style="padding: 20px;">
+    <div class="fea-gd-vv row">
+        {% for d in data %}
+     
+        <div class="col-lg-4 col-md-7" style="margin-bottom: 30px">
+            <div class="feature-gd icon-yellow">
+                <div class="icon">
+                    <i
+                        ><img
+                            src="/static/media/{{d.proof}}"
+                            style="
+                                height: 100px;
+                                width: 100px;
+                                padding-right: 26px;
+                                padding-bottom: 5px;
+                                border-radius: 40%;
+                            "
+                    /></i>
+                </div>
+                <div class="info" style="margin-top: 50px">
+                    <h3 style="color:white">Name: {{d.Name}}</h3>
+                    <h3 style="color:white">Contact: {{d.Contact}}</h3>
+                    <!-- <h3><a href="../static/media/{{d.license}}">License</a></h3> -->
+                    <ul type="none">
+                        <li class="cary-li-w3-agileits">
+                            <div class="snipcart-details top_brand_home_details">
+                                <form action="#" method="post">
+                                   <br>
+                                        <a href="/userexpbook?id={{d.id}}" style="margin-right: 50px;"
+                                            ><input 
+                                                type="button"
+                                                name="submit"
+                                                value="Book"
+                                                class="btn btn-primary"
+                                        /></a>
+                                      
+                                  
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      
+        {% endfor %}
+    </div>
+</div> 
+</center>
+{% if messages %}
+    {% for msg in messages %}
+    <script>alert('{{msg}}')</script>
+    {% endfor %}
+    {% endif %}
+
+{% endblock %}

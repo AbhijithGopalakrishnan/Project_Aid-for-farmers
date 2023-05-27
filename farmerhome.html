@@ -1,0 +1,14 @@
+{% extends "commonbasefarmer.html" %}
+{% block content2 %}
+<style>
+    h1{padding:100px;
+    color:rgb(0, 0, 0)};
+</style>
+<center>
+<div style="background-color:aliceblue;opacity: 82%; border-radius: 35%;">
+{% if data %}
+<h1>WELCOME     {{data.Name}}</h1>
+{% endif %}
+</div>
+</center>
+{% endblock %}
